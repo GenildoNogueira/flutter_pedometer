@@ -1,6 +1,8 @@
+library flutter_pedometer;
+
 import 'dart:async';
 
-import 'package:flutter/services.dart';
+import 'package:flutter/services.dart' show EventChannel;
 
 class FlutterPedometer {
   static const EventChannel _stepCountChannel =
