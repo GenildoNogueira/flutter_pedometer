@@ -9,7 +9,7 @@
 #endif
 
 @implementation PedometerPlugin
-+ (void)registerWithRegistrar:(NSObject<FlutterPluginRegistrar>*)registrar {
-  [SwiftPedometerPlugin registerWithRegistrar:registrar];
++ (void)registerWithRegistrar:(NSObject<FlutterPluginRegistrar> *)registrar {
+  [PedometerPlugin registerWithRegistrar:registrar];
 }
 @end
