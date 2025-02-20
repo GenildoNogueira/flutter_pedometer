@@ -2,16 +2,23 @@ library flutter_pedometer;
 
 import 'dart:async';
 
-import 'package:flutter/services.dart' show EventChannel;
+import 'package:flutter/services.dart' show EventChannel, PlatformException;
+import 'package:flutter/foundation.dart';
+
+part 'exeption.dart';
+part 'pedometer_exeption.dart';
 
 class FlutterPedometer {
-  static const EventChannel _stepCountChannel =
-      const EventChannel('step_count');
+  static const EventChannel _stepCountChannel = const EventChannel(
+    'step_count',
+  );
 
   /// Returns the steps taken since.
   /// Events may come with a delay.
   static Stream<StepCount> get stepCountStream => _stepCountChannel
-      .receiveBroadcastStream()
+      .receiveGuardedBroadcastStream(
+        onError: convertPlatformExceptionToPedometerException,
+      )
       .map((event) => StepCount._(event));
 }
 

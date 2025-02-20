@@ -28,7 +28,7 @@ class _MyAppState extends State<MyApp> {
     });
   }
 
-  void onStepCountError(exception) {
+  void onStepCountError(PedometerException exception) {
     setState(() {
       stepsException = exception.message;
     });
@@ -44,23 +44,17 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Pedometer Plugin'),
-        ),
+        appBar: AppBar(title: const Text('Pedometer Plugin')),
         body: Center(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Expanded(
                 flex: 2,
-                child: Center(
-                  child: Text('Steps Counter: $stepsCounter'),
-                ),
+                child: Center(child: Text('Steps Counter: $stepsCounter')),
               ),
               if (stepsException != null)
-                Expanded(
-                  child: Text(stepsException!),
-                ),
+                Expanded(child: Text(stepsException!)),
             ],
           ),
         ),
