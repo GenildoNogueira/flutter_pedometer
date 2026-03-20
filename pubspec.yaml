@@ -7,23 +7,24 @@ false_secrets:
   - example/**
 
 environment:
-  sdk: ">=3.7.0 <4.0.0"
-  flutter: ">=3.29.0"
+  sdk: ">=3.8.0 <4.0.0"
+  flutter: ">=3.38.1"
 
 dependencies:
   flutter:
     sdk: flutter
+  jni: ^0.15.2
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^5.0.0
+  jnigen: ^0.15.0
+  flutter_lints: ^6.0.0
 
 flutter:
   plugin:
     platforms:
       android:
-        package: com.example.flutter_pedometer
-        pluginClass: FlutterPedometerPlugin
+        ffiPlugin: true
       ios:
         pluginClass: FlutterPedometerPlugin

@@ -2,12 +2,8 @@ part of flutter_pedometer;
 
 @immutable
 class PedometerException implements Exception {
-  PedometerException({
-    this.message,
-    String? code,
-    this.stackTrace,
-    // ignore: unnecessary_this
-  }) : this.code = code ?? 'unknown';
+  PedometerException({this.message, String? code, this.stackTrace})
+    : this.code = code ?? 'unknown';
 
   /// The long form message of the exception.
   final String? message;

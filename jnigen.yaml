@@ -1,0 +1,24 @@
+android_sdk_config:
+  add_gradle_deps: true
+  android_example: example
+
+summarizer:
+  backend: asm
+
+output:
+  dart:
+    path: lib/generated/pedometer_bindings.dart
+    structure: single_file
+  
+  c:
+    path: src/
+    library_name: flutter_pedometer_jni
+
+source_path:
+  - 'android/src/main/kotlin/'
+
+classes:
+  - 'com.example.flutter_pedometer.PedometerManager'
+  - 'android.hardware.SensorEvent'
+  - 'android.hardware.SensorEventListener'
+  - 'android.hardware.SensorManager'
